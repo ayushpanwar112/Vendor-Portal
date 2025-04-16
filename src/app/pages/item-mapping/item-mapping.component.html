@@ -1,0 +1,83 @@
+<div class="container-fluid item-mapping-container pt-5">
+    <!-- Search & Filter -->
+     <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex gap-3 align-items-center">
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control ps-3 pe-5 rounded-pill"
+                placeholder="Search items..."
+                [(ngModel)]="searchTerm"
+              />
+              <button
+                class="btn position-absolute border-0 bg-transparent"
+                style="top: 50%; right: 10px; transform: translateY(-50%);"
+                (click)="applySearch()"
+                aria-label="Search"
+              >
+                <i class="fa fa-search text-muted"></i>
+              </button>
+            </div>
+          </div>
+
+    <button class="btn btn-success" (click)="openFilterModal()">
+        <i class="fa-solid fa-square-plus" style="color: #ffffff;"></i> Start Mapping
+      </button>
+     </div>
+   
+  
+    <!-- Items Table -->
+    <div class="table-responsive table-container">
+      <table class="table table-striped table-hover">
+        <thead class="tables">
+          <tr>
+            <th>Customer Item Code</th>
+            <th>Customer Item Name</th>
+            <th>Vendor Item Code</th>
+            <th>Vendor Item Name</th>
+            <th>Product</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredItems">
+            <td>{{ item.customerItemCode }}</td>
+            <td>{{ item.customerItemName }}</td>
+            <td>{{ item.vendorItemCode }}</td>
+            <td>{{ item.vendorItemName }}</td>
+            <td>{{ item.product }}</td>
+            
+            <td class="position-relative">
+                <div class="dropdown">
+                  <button 
+                    class="btn btn-sm"
+                    id="dropdownMenuButton"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-label="Action"
+                  >
+                    <i class="fa-solid fa-gear" style="color: #27a035;"></i>
+                  </button>
+              
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li>
+                      <button class="dropdown-item" (click)="editItem(item)">
+                        <i class="fa fa-edit text-warning me-2"></i> Edit
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item" (click)="deleteItem(item)">
+                        <i class="fa fa-trash text-danger me-2"></i> Delete
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+              
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

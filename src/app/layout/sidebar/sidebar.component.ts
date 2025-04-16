@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Renderer2 } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
+  standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })

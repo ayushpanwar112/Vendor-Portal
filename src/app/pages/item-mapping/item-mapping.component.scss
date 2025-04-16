@@ -1,0 +1,38 @@
+.item-mapping-container {
+  
+    background-color: #f8f9fa;
+  
+  
+    
+    input.form-control {
+      border-radius: 0.375rem 0 0 0.375rem;
+    }
+  
+    button.btn {
+      i {
+        margin-right: 4px;
+      }
+    }
+    .table-container{
+      min-height: 300px;
+    }
+  
+    table {
+
+      thead {
+       
+        th {
+          background-color: #D7EEFF;
+          vertical-align: middle;
+          text-align: center;
+        }
+      }
+  
+      td,
+      th {
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
+  

@@ -19,11 +19,11 @@
         </li>
 
         <li class="sidebar-item">
-          <a routerLink="/products" class="sidebar-link" (click)="preventCollapse($event)">
-            <i class="fa fa-box sidebar-icon"></i>
-            <span *ngIf="!isCollapsed" class="sidebar-text">Item Mapping</span>
-          </a>
-        </li>
+            <a [routerLink]="'/item-mapping'" class="sidebar-link">
+              <i class="fa fa-box sidebar-icon"></i>
+              <span *ngIf="!isCollapsed" class="sidebar-text">Item Mapping</span>
+            </a>
+          </li>
        
         <li class="sidebar-item has-submenu">
           <a (click)="toggleItemMapping($event)" class="sidebar-link">
