@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-blue: #6375f0;
+  --color-red: #fe7062;
+  --color-green: #7fcf6b;
+  --border-grey: #bfbcbc;
+  --border-blue: #6375f0;
+  --color-bg: #ffffff;
+  --color-card: #f4f4f4;
+  --primary-text: #000000;
+  --secondry-text: #bfbcbc;
+}
+
+.dark-theme {
+  --color-blue: #6375f0;
+  --color-red: #fe7062;
+  --color-green: #7fcf6b;
+  --border-grey: #bfbcbc;
+  --border-blue: #6375f0;
+  --color-bg: #0d121e;
+  --color-card: #f4f4f4;
+  --primary-text: #ffffff;
+  --secondry-text: #bfbcbc;
+}
+
+.light-them {
+  --color-blue: #6375f0;
+  --color-red: #fe7062;
+  --color-green: #7fcf6b;
+  --border-grey: #bfbcbc;
+  --border-blue: #6375f0;
+  --color-bg: #ffffff;
+  --color-card: #f4f4f4;
+  --primary-text: #000000;
+  --secondry-text: #bfbcbc;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
