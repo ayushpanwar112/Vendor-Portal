@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { ThemeToggleComponent } from "../../components/theme-toggle/theme-toggle.component";
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, ThemeToggleComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

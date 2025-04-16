@@ -1,12 +1,10 @@
+<app-theme-toggle></app-theme-toggle>
 <section id="login-main" class="">
   <section id="img-section" class="">
-    <img src="/src/assets/images/vendor_loginpage_img.svg" alt="" />
+    <img src="/assets/images/vendor_loginpage_img.svg" alt="" />
   </section>
   <section id="login-section" class="">
     <div class="login-content">
-      <button (click)="toggleTheme()">
-        Toggle {{ isDarkMode ? "Light" : "Dark" }} Mode
-      </button>
       <h2>Welcome to Portal</h2>
       <small>Please enter your details</small>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
