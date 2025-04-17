@@ -18,14 +18,30 @@
     }
 
     .mapping-form-container {
-      position: absolute; /* Position it absolutely within the parent container */
-      top: 0; /* Align to the top */
-      left: 0; /* Align to the left */
-      width: 100%; /* Take full width */
-      z-index: 1050; /* Ensure it appears above other elements */
-      background-color: rgba(255, 255, 255, 0.95); /* Add a semi-transparent background */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better visibility */
-    
+      position: absolute;
+      top: 8%;
+      left: 4rem;
+      width: 95%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      transform: translateY(-100%); /* Initially hidden */
+      opacity: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+      z-index: 1050;
+     
+    }
+
+    .mapping-form-container.open {
+      transform: translateY(0); /* Slide in */
+      opacity: 1; /* Fully visible */
+    }
+
+    .mapping-form-container.closed {
+      transform: translateY(-200%); /* Slide out */
+      opacity: 0; /* Fully hidden */
+      /* Hide the element */
     }
   
     table {
@@ -46,4 +62,3 @@
       }
     }
   }
-  

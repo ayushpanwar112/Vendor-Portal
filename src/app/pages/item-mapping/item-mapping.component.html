@@ -13,6 +13,7 @@
           class="btn position-absolute border-0 bg-transparent"
           style="top: 50%; right: 10px; transform: translateY(-50%);"
           (click)="applySearch()"
+          
           aria-label="Search"
         >
           <i class="fa fa-search text-muted"></i>
@@ -29,21 +30,26 @@
   </div>
 
   <!-- Mapping Form -->
-  <div *ngIf="showMappingForm" class="mt-4 mapping-form-container">
+  <div
+    class="mt-4 mapping-form-container "
+    [class.open]="formVisible$ | async"
+    [class.closed]="!(formVisible$ | async)"
+    
+  >
     <app-mapping-form></app-mapping-form>
   </div>
 
   <!-- Items Table -->
   <div class="table-responsive table-container">
     <table class="table table-striped table-hover">
-      <thead class="tables">
+      <thead class="tables ">
         <tr>
-          <th>Customer Item Code</th>
-          <th>Customer Item Name</th>
-          <th>Vendor Item Code</th>
-          <th>Vendor Item Name</th>
-          <th>Product</th>
-          <th>Action</th>
+          <th class="py-3 px-3 fw-semibold text-center">Customer Item Code</th>
+          <th class="py-3 px-3 fw-semibold text-center">Customer Item Name</th>
+          <th class="py-3 px-3 fw-semibold text-center">Vendor Item Code</th>
+          <th class="py-3 px-3 fw-semibold text-center">Vendor Item Name</th>
+          <th class="py-3 px-3 fw-semibold text-center">Product</th>
+          <th class="py-3 px-3 fw-semibold text-center">Action</th>
         </tr>
       </thead>
       <tbody>

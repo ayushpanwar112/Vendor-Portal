@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { MappingFormComponent } from '../../components/mapping-form/mapping-form.component';
+import { MappingPageService } from '../../core/services/mapping-page.service'; // Import the service
 
 @Component({
   selector: 'app-item-mapping',
   templateUrl: './item-mapping.component.html',
   styleUrls: ['./item-mapping.component.scss'],
-  imports:[FormsModule,CommonModule,MappingFormComponent], // Import FormsModule for ngModel
+  imports: [FormsModule, CommonModule, MappingFormComponent], // Import FormsModule for ngModel
 })
 export class ItemMappingComponent {
   searchTerm: string = '';
-  showMappingForm: boolean = false; // Track visibility of the mapping form
+  formVisible$; // Declare without initialization
+
+  constructor(private mappingFormsSerivce: MappingPageService) {
+    this.formVisible$ = this.mappingFormsSerivce.formVisibility$; // Initialize in the constructor
+  }
 
   items = [
     {
@@ -46,7 +51,7 @@ export class ItemMappingComponent {
   }
 
   toggleMappingForm() {
-    this.showMappingForm = !this.showMappingForm; // Toggle the form visibility
+    this.mappingFormsSerivce.toggleForm();
   }
 
   editItem(item: any) {
