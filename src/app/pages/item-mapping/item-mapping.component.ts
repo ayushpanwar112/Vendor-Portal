@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
+import { MappingFormComponent } from '../../components/mapping-form/mapping-form.component';
 
 @Component({
   selector: 'app-item-mapping',
   templateUrl: './item-mapping.component.html',
   styleUrls: ['./item-mapping.component.scss'],
-  imports:[FormsModule,CommonModule], // Import FormsModule for ngModel
+  imports:[FormsModule,CommonModule,MappingFormComponent], // Import FormsModule for ngModel
 })
 export class ItemMappingComponent {
   searchTerm: string = '';
+  showMappingForm: boolean = false; // Track visibility of the mapping form
 
   items = [
     {
@@ -26,7 +28,6 @@ export class ItemMappingComponent {
       vendorItemName: 'SaltyRock',
       product: 'Food'
     }
-    // Add more items as needed
   ];
 
   filteredItems = [...this.items];
@@ -41,8 +42,11 @@ export class ItemMappingComponent {
   }
 
   openFilterModal() {
-    // Logic for opening filter modal
     alert('Filter modal logic goes here');
+  }
+
+  toggleMappingForm() {
+    this.showMappingForm = !this.showMappingForm; // Toggle the form visibility
   }
 
   editItem(item: any) {
