@@ -17,6 +17,7 @@
   height: fit-content;
   display: grid;
   border-radius: 0.5rem;
+  border: 2px solid var(--border-color);
   grid-template-columns: 1fr 1fr;
   background-color: var(--color-bg-secondry);
 
@@ -53,7 +54,8 @@
   text-align: center;
   justify-content: center;
   padding: 3rem;
-  border-left: 2px solid var(--color-card);
+  border-left: 2px solid var(--border-color);
+  color: var(--primary-text);
   @media (max-width: 768px) {
     padding: 1rem;
     border: none;
@@ -88,6 +90,7 @@ input {
   padding: 0.8rem;
   border: 2px solid var(--border-grey);
   border-radius: 0.3rem;
+  background-color: var(--color-bg-secondry);
   transition: border-color 0.4s ease;
   &:hover {
     outline: none;
