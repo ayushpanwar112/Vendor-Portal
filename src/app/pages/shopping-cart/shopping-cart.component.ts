@@ -1,5 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Product } from '../../Model/product.model';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,6 +11,9 @@ import { Component } from '@angular/core';
   styleUrl: './shopping-cart.component.scss',
 })
 export class ShoppingCartComponent {
+
+  @ViewChild('cartModalRef') cartModalRef!: ElementRef;
+
   sortByDropDownOpen = false;
   categoryDropDownOpen = false;
   sortByOptions = [
@@ -37,7 +43,7 @@ export class ShoppingCartComponent {
     this.categoryDropDownOpen = false;
   }
 
-  products = [
+  products: Product[] = [
     {
       name: 'Cleaning & Household',
       stockId: 'FNSRM0000048147',
@@ -242,4 +248,51 @@ export class ShoppingCartComponent {
       ],
     },
   ];
+
+  cart: Product[] = [];
+
+  addToCart(product: Product) {
+    const existing = this.cart.find(item => item.stockId === product.stockId);
+    if (existing) {
+      existing.quantity! += product.quantity || 1;
+    } else {
+      const newItem = { ...product, quantity: product.quantity || 1 };
+      this.cart.push(newItem);
+    }
+
+    product.quantity = 1;
+  }
+
+  openCartModal() {
+    const modal = new bootstrap.Modal(this.cartModalRef.nativeElement);
+    modal.show();
+  }
+
+  closeCartModal() {
+    if (this.cartModalRef != null) {
+      this.cartModalRef.nativeElement.style.display = 'none';
+    }
+  }
+
+  removeItem(item: any) {
+    this.cart = this.cart.filter(i => i !== item);
+  }
+
+  incrementQty(product: Product) {
+    if (!product.quantity) product.quantity = 1;
+    product.quantity++;
+  }
+
+  decrementQty(product: Product) {
+    if (!product.quantity) product.quantity = 1;
+    if (product.quantity > 1) product.quantity--;
+  }
+
+  get totalQty() {
+    return this.cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  }
+
+  get totalAmount(): number {
+    return this.cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
+  }
 }
