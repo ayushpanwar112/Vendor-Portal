@@ -1,0 +1,20 @@
+/* Ensure the content is properly aligned and spaced */
+.main-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .content {
+    flex: 1;
+    
+    transition: margin-left 0.3s ease-in-out;
+    background-color: #f8f9fa; /* Light background for better contrast */
+    min-height: 100vh;
+  }
+  
+ 
+  h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }

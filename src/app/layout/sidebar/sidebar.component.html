@@ -1,0 +1,125 @@
+<div class="sidebar-backdrop " *ngIf="!isCollapsed" (click)="toggleSidebar()"></div>
+
+<div class="sidebar-container">
+  <div class="sidebar" [ngClass]="{'sidebar-collapsed': isCollapsed}">
+    <div class="sidebar-header">
+      <h2 *ngIf="!isCollapsed" class="sidebar-title">My Sidebar</h2>
+      <button (click)="toggleSidebar($event)" class="sidebar-toggle-btn" aria-label="Toggle sidebar">
+        <i class="fa" [ngClass]="isCollapsed ? 'fa-bars' : 'fa-times'"></i>
+      </button>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <ul class="sidebar-menu">
+        <li class="sidebar-item">
+          <a routerLink="/dashboard" class="sidebar-link" (click)="preventCollapse($event)">
+            <i class="fa fa-home sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a [routerLink]="'/item-mapping'" class="sidebar-link">
+              <i class="fa fa-box sidebar-icon"></i>
+              <span *ngIf="!isCollapsed" class="sidebar-text">Item Mapping</span>
+            </a>
+          </li>
+       
+        <li class="sidebar-item has-submenu">
+          <a (click)="toggleItemMapping($event)" class="sidebar-link">
+            <i class="fa-solid fa-cash-register sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Purchase Order</span>
+            <i *ngIf="!isCollapsed" class="fa submenu-arrow" 
+               [ngClass]="isItemMappingOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          </a>
+        
+          <ul *ngIf="isItemMappingOpen" class="sidebar-submenu open">
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub1" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">All Post</span>
+              </a>
+            </li>
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub2" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">Pending Approvals</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+      
+
+        <li class="sidebar-item has-submenu">
+          <a (click)="toggleInvoices($event)" class="sidebar-link">
+            <i class="fa-solid fa-file-invoice sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Invoices</span>
+            <i *ngIf="!isCollapsed" class="fa submenu-arrow" 
+               [ngClass]="isItemMappingOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          </a>
+        
+          <ul *ngIf="isInvoicesOpen" class="sidebar-submenu open">
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub1" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">Create Invoice</span>
+              </a>
+            </li>
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub2" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">All Invoices</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar-item has-submenu">
+          <a (click)=" togglePayments($event)" class="sidebar-link">
+            <i class="fa-solid fa-money-bill sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Payment</span>
+            <i *ngIf="!isCollapsed" class="fa submenu-arrow" 
+               [ngClass]="isPaymentsOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          </a>
+        
+          <ul *ngIf="isPaymentsOpen" class="sidebar-submenu open">
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub1" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">Payment Pending</span>
+              </a>
+            </li>
+            <li class="sidebar-subitem">
+              <a routerLink="/item-mapping/sub2" class="sidebar-sublink" (click)="preventCollapse($event)">
+                <i class="fa-solid fa-plus submenu-icon"></i>
+                <span class="submenu-text">All Payment</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+       
+        <li class="sidebar-item">
+          <a routerLink="/statement" class="sidebar-link" (click)="preventCollapse($event)">
+            <i class="fa-solid fa-file sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Account Statement</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a [routerLink]="'/change-password'" class="sidebar-link" (click)="preventCollapse($event)">
+            <i class="fa-solid fa-lock sidebar-icon"></i>
+            <span *ngIf="!isCollapsed" class="sidebar-text">Change Password</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <button class="sidebar-logout-btn" (click)="preventCollapse($event)">
+        <i class="fa-solid fa-power-off sidebar-icon"></i>
+        <span *ngIf="!isCollapsed" class="sidebar-text">Logout</span>
+      </button>
+    </div>
+  </div>
+</div>
