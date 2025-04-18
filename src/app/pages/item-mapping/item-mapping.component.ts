@@ -16,7 +16,8 @@ export class ItemMappingComponent {
 
   constructor(private mappingFormsSerivce: MappingPageService) {
     this.formVisible$ = this.mappingFormsSerivce.formVisibility$; // Initialize in the constructor
-  }
+  } 
+
 
   items = [
     {

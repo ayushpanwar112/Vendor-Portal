@@ -24,14 +24,24 @@
       </thead>
       <tbody>
         <tr>
-          <td class="px-3 align-middle"><input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., CUST-001" /></td>
-          <td class="px-3 align-middle"><input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Laptop" /></td>
-          <td class="px-3 align-middle"><input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., VEND-001" /></td>
-          <td class="px-3 align-middle"><input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Dell XPS" /></td>
-          <td class="px-3 align-middle"><input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Electronics" /></td>
+          <td class="px-3 align-middle">
+            <input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., CUST-001" [(ngModel)]="FormData.customerItemCode" />
+          </td>
+          <td class="px-3 align-middle">
+            <input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Laptop" [(ngModel)]="FormData.customerItemName" />
+          </td>
+          <td class="px-3 align-middle">
+            <input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., VEND-001" [(ngModel)]="FormData.vendorItemCode" />
+          </td>
+          <td class="px-3 align-middle">
+            <input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Dell XPS" [(ngModel)]="FormData.vendorItemName" />
+          </td>
+          <td class="px-3 align-middle">
+            <input type="text" class="form-control form-control-sm border-secondary" placeholder="e.g., Electronics" [(ngModel)]="FormData.product" />
+          </td>
           <td class="px-3 text-end align-middle">
             <div class="d-flex gap-2 justify-content-end">
-              <button class="btn btn-success btn-sm px-3 d-flex align-items-center gap-2 shadow-sm">
+              <button class="btn btn-success btn-sm px-3 d-flex align-items-center gap-2 shadow-sm" (click)="saveForm()">
                 <i class="fa-solid fa-floppy-disk"></i>
                 <span>Save</span>
               </button>

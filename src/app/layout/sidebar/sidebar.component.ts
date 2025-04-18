@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MappingPageService } from '../../core/services/mapping-page.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,13 +18,14 @@ export class SidebarComponent {
   isInvoicesOpen = false;
   isPaymentsOpen = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2,private mappingFormsSerivce: MappingPageService) {}
 
   toggleSidebar(event?: Event) {
     if (event) {
       event.stopPropagation();
     }
     this.isCollapsed = !this.isCollapsed;
+    this.mappingFormsSerivce.closeForm();
 
     // Add or remove the collapsed class on the body
     if (this.isCollapsed) {

@@ -1,4 +1,4 @@
-<div class="sidebar-backdrop" *ngIf="!isCollapsed" (click)="toggleSidebar()"></div>
+<div class="sidebar-backdrop " *ngIf="!isCollapsed" (click)="toggleSidebar()"></div>
 
 <div class="sidebar-container">
   <div class="sidebar" [ngClass]="{'sidebar-collapsed': isCollapsed}">
@@ -107,7 +107,7 @@
         </li>
 
         <li class="sidebar-item">
-          <a routerLink="/change-password" class="sidebar-link" (click)="preventCollapse($event)">
+          <a [routerLink]="'/change-password'" class="sidebar-link" (click)="preventCollapse($event)">
             <i class="fa-solid fa-lock sidebar-icon"></i>
             <span *ngIf="!isCollapsed" class="sidebar-text">Change Password</span>
           </a>
