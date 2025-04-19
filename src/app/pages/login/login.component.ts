@@ -3,6 +3,8 @@ import { ThemeService } from '../../services/theme.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { ThemeToggleComponent } from "../../components/theme-toggle/theme-toggle.component";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import { ThemeToggleComponent } from "../../components/theme-toggle/theme-toggle
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService,private router: Router) {}
 
   model = {
     email: '',
@@ -22,6 +24,13 @@ export class LoginComponent {
   ngOnInit(): void {
     this.themeService.initTheme();
   }
+
+  onLogin(): void {
+    // Simulate login
+    localStorage.setItem('token', 'user-token'); // Store a token
+    this.router.navigate(['/dashboard']); // Navigate to the dashboard
+  }
+
 
   toggleTheme(): void {
     this.themeService.toggleTheme();

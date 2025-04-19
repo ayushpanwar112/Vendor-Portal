@@ -35,7 +35,7 @@
         
           <ul *ngIf="isItemMappingOpen" class="sidebar-submenu open">
             <li class="sidebar-subitem">
-              <a routerLink="/item-mapping/sub1" class="sidebar-sublink" (click)="preventCollapse($event)">
+              <a [routerLink]="'/purchase-order'" class="sidebar-sublink" (click)="preventCollapse($event)">
                 <i class="fa-solid fa-plus submenu-icon"></i>
                 <span class="submenu-text">All Post</span>
               </a>
